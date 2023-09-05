@@ -57,15 +57,15 @@ public class PlayerService implements PlayerRepository {
         if(existingPlayer == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        if(player.getName() != null){
-            existingPlayer.setName(player.getName());
+        if(player.getPlayerName() != null){
+            existingPlayer.setPlayerName(player.getPlayerName());
         }
         return existingPlayer;
     }
 
     @Override
     public Player addPlayer(Player player){
-        player.setId(uniquePlayerId);
+        player.setPlayerId(uniquePlayerId);
         team.put(uniquePlayerId, player);
         uniquePlayerId += 1;
         return player;
